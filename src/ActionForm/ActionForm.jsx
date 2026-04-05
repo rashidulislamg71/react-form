@@ -1,20 +1,24 @@
 import React, { useState } from 'react'
 
 function ActionForm() {
-    const [password, setPassword] = useState(" ")
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     console.log(e.target.email.value)
-    // }
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("")
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
 
     // const handleAction = (formData) => {
     //     console.log(formData.get("name"))
     //     console.log(formData.get("email"))
     // }
 
-    const passwordOnChangeHandle = (e)=>{
+    const passwordOnChangeHandle = (e) => {
         e.preventDefault();
-        console.log(e.target.value)
+        setPassword(e.target.value);
+        if (password.length < 6) {
+            setError("Password must be at least 6 characters!")
+        }
+        else { setError(" ") }
     }
 
     return (
@@ -36,11 +40,13 @@ function ActionForm() {
 
             <h4>use onChange
             </h4>
-            <form >
-                <input type="email " name="email" required placeholder='email'/> <br />
-                <input type="password" name="password" onChange={passwordOnChangeHandle}  required placeholder='password'/> <br />
+            <form onSubmit={handleSubmit}>
+                <input type="email " name="email" required placeholder='email' /> <br />
+                <input type="password" name="password" onChange={passwordOnChangeHandle} required placeholder='password' /> <br />
                 <input type="submit" value={"submit"} />
             </form>
+
+            <small style={{ color: "red" }}>{error}</small>
         </div>
     )
 }

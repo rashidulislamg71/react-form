@@ -1,6 +1,7 @@
 
 import ActionForm from './ActionForm/ActionForm'
 import './App.css'
+import HookForm from './HookForm'
 import UnControlledField from './UnControlledField/UnControlledField'
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
   return (
     <>
       {/* <ActionForm /> */}
-      <UnControlledField />
+      {/* <UnControlledField /> */}
+      <HookForm />
     </>
   )
 }

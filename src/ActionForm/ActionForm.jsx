@@ -3,14 +3,15 @@ import React, { useState } from 'react'
 function ActionForm() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("")
+
     const handleSubmit = (e) => {
         e.preventDefault();
     }
 
-    // const handleAction = (formData) => {
-    //     console.log(formData.get("name"))
-    //     console.log(formData.get("email"))
-    // }
+    const handleAction = (formData) => {
+        console.log(formData.get("name"))
+        console.log(formData.get("email"))
+    }
 
     const passwordOnChangeHandle = (e) => {
         e.preventDefault();
@@ -24,7 +25,7 @@ function ActionForm() {
     return (
         <div>
 
-            {/* <h4>use onSubmit</h4>
+            <h4>use onSubmit</h4>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <input type="text " name="name" /> <br />
                 <input type="email " name="email" /> <br />
@@ -36,7 +37,7 @@ function ActionForm() {
                 <input type="text " name="name" /> <br />
                 <input type="email " name="email" /> <br />
                 <input type="submit" value={"submit"} />
-            </form> */}
+            </form>
 
             <h4>use onChange
             </h4>
